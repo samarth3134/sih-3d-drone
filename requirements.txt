@@ -1,12 +1,2 @@
-numpy>=1.24.0
-opencv-python>=4.8.0
-torch>=2.0.0
-torchvision>=0.15.0
-timm>=0.9.0
-Pillow>=10.0.0
-pyyaml>=6.0
-open3d>=0.17.0
-scikit-image>=0.21.0
-scipy>=1.10.0
-matplotlib>=3.7.0
-tqdm>=4.65.0
+# Add project dependencies as modules are implemented.
+PyYAML>=6.0

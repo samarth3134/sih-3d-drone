@@ -1,22 +1,23 @@
+# Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-.Python
+.venv/
 venv/
-.env/
-*.egg-info/
-dist/
-build/
+
+# Data artifacts (keep directory structure with .gitkeep files)
+data/input_video/*
+!data/input_video/.gitkeep
 data/frames/*
+!data/frames/.gitkeep
 data/masked_frames/*
+!data/masked_frames/.gitkeep
 data/depth_maps/*
+!data/depth_maps/.gitkeep
 data/output/*
-data/input_video/*.mp4
-data/input_video/*.avi
-data/input_video/*.mov
-!data/**/.gitkeep
+!data/output/.gitkeep
+
+# Editor and OS files
 .vscode/
 .idea/
-*.swp
-*.swo
+.DS_Store
+Thumbs.db

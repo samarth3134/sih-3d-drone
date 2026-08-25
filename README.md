@@ -1,38 +1,31 @@
-# SIH 3D Drone Reconstruction
+# SIH 3D Drone
 
-Monocular 3D scene reconstruction from drone footage.
+A modular pipeline for turning drone video into a reconstructed 3D output.
 
-## Pipeline
+## Repository structure
 
-1. **Preprocessing** — Frame extraction & normalization
-2. **Depth Estimation** — Monocular depth inference (DPT/MiDaS)
-3. **Dynamic Masking** — Moving object segmentation via optical flow
-4. **Reconstruction** — 3D point cloud / mesh generation (TSDF)
-5. **Visualization** — Interactive 3D rendering & export
-
-## Setup
-
-```bash
-pip install -r requirements.txt
+```text
+data/
+  input_video/       Source drone videos (not committed)
+  frames/            Extracted video frames (not committed)
+  masked_frames/     Frames after dynamic-object masking (not committed)
+  depth_maps/        Depth-estimation outputs (not committed)
+  output/            Reconstruction and visualization outputs (not committed)
+modules/
+  preprocessing/     Yathansh
+  depth_estimation/  Srujan
+  dynamic_masking/   Alissa
+  reconstruction/    Ashwika
+  visualization/     Dhruvi
+main_pipeline.py     Samarth — pipeline orchestration
+config.yaml          Shared configuration
 ```
 
-## Usage
+## Getting started
 
-Place your drone footage in `data/input_video/` and run:
+1. Create and activate a Python virtual environment.
+2. Install dependencies: `pip install -r requirements.txt`.
+3. Place source video files in `data/input_video/`.
+4. Run `python main_pipeline.py`.
 
-```bash
-python main_pipeline.py
-```
-
-Output is saved to `data/output/`.
-
-## Project Structure
-
-| Directory | Owner | Description |
-|-----------|-------|-------------|
-| `modules/preprocessing/` | Yathansh | Frame extraction & cleanup |
-| `modules/depth_estimation/` | Srujan | Monocular depth models |
-| `modules/dynamic_masking/` | Alissa | Moving object segmentation |
-| `modules/reconstruction/` | Ashwika | 3D reconstruction engine |
-| `modules/visualization/` | Dhruvi | 3D rendering & export |
-| `main_pipeline.py` | Samarth | Pipeline orchestration |
+Each module directory is reserved for its assigned owner. Add module-specific documentation and dependencies as the implementation develops.

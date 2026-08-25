@@ -1,27 +1,13 @@
+# Central configuration for the SIH 3D drone pipeline.
 input:
-  video_path: "data/input_video/drone_footage.mp4"
-
-preprocessing:
-  frame_rate: 30
-  resize: [640, 480]
-  output_dir: "data/frames"
+  video_path: data/input_video/input.mp4
+  frames_dir: data/frames
 
 depth_estimation:
-  model: "DPT-Large"
-  device: "cuda"
-  output_dir: "data/depth_maps"
+  output_dir: data/depth_maps
 
 dynamic_masking:
-  method: "optical_flow"
-  threshold: 0.3
-  output_dir: "data/masked_frames"
+  output_dir: data/masked_frames
 
 reconstruction:
-  voxel_size: 0.05
-  method: "tsdf"
-  output_dir: "data/output"
-
-visualization:
-  point_size: 2.0
-  colormap: "jet"
-  save_format: "ply"
+  output_dir: data/output
