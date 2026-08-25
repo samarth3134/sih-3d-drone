@@ -1,13 +1,16 @@
-# Central configuration for the SIH 3D drone pipeline.
-input:
-  video_path: data/input_video/input.mp4
-  frames_dir: data/frames
+paths:
+  input_video: "data/input_video/drone.mp4"
+  frames_dir: "data/frames/"
+  masked_frames_dir: "data/masked_frames/"
+  depth_maps_dir: "data/depth_maps/"
+  output_dir: "data/output/"
 
-depth_estimation:
-  output_dir: data/depth_maps
+video:
+  fps_extract: 2          # extract 2 frames per second
+  resolution: [1920, 1080]
 
-dynamic_masking:
-  output_dir: data/masked_frames
+gps:
+  altitude_ref: 50.0      # meters above ground
 
-reconstruction:
-  output_dir: data/output
+colmap:
+  output_dir: "data/colmap_output/"

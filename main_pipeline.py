@@ -1,10 +1,23 @@
-"""Entry point for the SIH 3D drone reconstruction pipeline."""
+# main_pipeline.py - Samarth owns this
+import yaml
 
+with open("config.yaml") as f:
+    config = yaml.safe_load(f)
 
-def main() -> None:
-    """Run the end-to-end pipeline once its modules are implemented."""
-    print("SIH 3D drone pipeline setup is ready.")
+# Step 1: Preprocessing (Yathansh's module)
+from modules.preprocessing.extract_frames import extract_frames
+frames = extract_frames(config)
 
+# Step 2: Dynamic Masking (Alissa's module)
+from modules.dynamic_masking.mask import mask_dynamic_objects
+masked = mask_dynamic_objects(frames, config)
 
-if __name__ == "__main__":
-    main()
+# Step 3: Depth Estimation (Srujan's module)
+from modules.depth_estimation.depth import estimate_depth
+depths = estimate_depth(frames, config)
+
+# Step 4: 3D Reconstruction (Ashwika's module)
+from modules.reconstruction.reconstruct import reconstruct
+model = reconstruct(masked, depths, config)
+
+print("Pipeline complete. Output at:", config["paths"]["output_dir"])
