@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+*.egg-info/
 
 # Data artifacts (keep directory structure with .gitkeep files)
 data/input_video/*
@@ -15,6 +16,17 @@ data/depth_maps/*
 !data/depth_maps/.gitkeep
 data/output/*
 !data/output/.gitkeep
+data/colmap_output/*
+!data/colmap_output/.gitkeep
+
+# Model weights (too large for git)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Depth map arrays
+*.npy
 
 # Editor and OS files
 .vscode/
