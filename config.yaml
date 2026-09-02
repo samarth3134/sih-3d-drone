@@ -3,14 +3,22 @@ paths:
   frames_dir: "data/frames/"
   masked_frames_dir: "data/masked_frames/"
   depth_maps_dir: "data/depth_maps/"
+  geo_reference: "data/colmap_output/geo_reference.txt"
   output_dir: "data/output/"
 
 video:
-  fps_extract: 2          # extract 2 frames per second
+  fps_extract: 2            # extract 2 frames per second
   resolution: [1920, 1080]
 
 gps:
-  altitude_ref: 50.0      # meters above ground
+  altitude_ref: 50.0        # AGL (above ground level) in metres — NOT raw GPS altitude
 
 colmap:
   output_dir: "data/colmap_output/"
+  sparse_dir: "data/colmap_output/sparse/0/"
+  sparse_geo_dir: "data/colmap_output/sparse_geo/"
+  images_dir: "data/colmap_output/images/"
+
+gsplat:
+  max_steps: 3000           # increase to 7000-30000 for final quality
+  result_dir: "data/output/gaussian_splat/"
